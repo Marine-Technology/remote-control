@@ -1,0 +1,23 @@
+#ifndef SETTINGS_H
+#define SETTINGS_H
+
+#include <Arduino.h>
+
+
+#define VOLTMETER_PIN A0
+#define VOLTMETER_R1 47000.0
+#define VOLTMETER_R2 10000.0
+
+#define VOLTMETER_ADC_RESOLUTION 4095.0
+#define VOLTMETER_ADC_REFERENCE 5
+
+#define MODE_NOT_SET 0
+#define MODE_ACRO 1
+#define MODE_STABILIZED 2
+
+#define ELRS_SERIAL_TX 17
+#define ELRS_SERIAL_RX 16
+#define ELRS_SERIAL_BAUD 420000
+
+
+#endif
