@@ -2,19 +2,19 @@
 #include "elrs.h"
 #include "oledMenu.h"
 #include "settings.h"
-#include "voltage.h"
+
 
 void setup() {
     Serial.begin(9600);
 
     initOled();
-    updateOledMenu(true, 0, MODE_NOT_SET, false);
+    updateOledMenu(true, MODE_NOT_SET, false);
     initElrs();
 
     // Loading screen
     for (uint8_t _ = 0; _ < 4; ++_) {
         delay(350);
-        updateOledMenu(true, 0, MODE_NOT_SET, false);
+        updateOledMenu(true, MODE_NOT_SET, false);
     }
 }
 
@@ -45,7 +45,7 @@ void loop() {
     Serial.println();
 
     if (needOledUpdate || (iter % 51) == 0) {
-        updateOledMenu(false, readVoltage(), mode, true);
+        updateOledMenu(false, mode, true);
     }
 
     if (!(iter % 10) && !isRadioConnected()) {
@@ -53,7 +53,7 @@ void loop() {
             elrsUpdate();
             if (isRadioConnected()) break;
             Serial.println("0;0;0;0;0;0;0;0;0;0");
-            updateOledMenu(false, readVoltage(), MODE_NOT_SET, false);
+            updateOledMenu(false, MODE_NOT_SET, false);
         }
     }
 }

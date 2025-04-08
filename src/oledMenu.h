@@ -7,7 +7,7 @@ void drawIcon8x8(byte index);
 
 void initOled();
 
-void updateOledMenu(bool loading, float inputVoltage, byte mode, bool elrsConnected);
+void updateOledMenu(bool loading, byte mode, bool elrsConnected);
 
 byte getMode(unsigned int channel7);
 

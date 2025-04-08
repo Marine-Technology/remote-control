@@ -39,7 +39,7 @@ byte getMode(unsigned int channel7) {
 }
 
 
-void updateOledMenu(bool loading, float inputVoltage, byte mode, bool elrsConnected) {
+void updateOledMenu(bool loading, byte mode, bool elrsConnected) {
     static bool loadingIcon = false;
 
     oled.clear();
@@ -49,12 +49,7 @@ void updateOledMenu(bool loading, float inputVoltage, byte mode, bool elrsConnec
     oled.invertText(true);
     oled.setCursor(8, 1);
     oled.setScale(2);
-    if (loading) {
-        oled.print("  MT-01");
-    } else {
-        oled.print(inputVoltage, 1);
-        oled.print(" v");
-    }
+    oled.print("  MT-01");
 
     oled.invertText(false);
     oled.setScale(1);
